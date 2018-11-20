@@ -26,10 +26,12 @@ Configuração do Ubuntu:
 - Criação de um usuário chamado grader;
 - Poderes de sudo foram cedidos ao grader copiando o arquivo `/etc/sudoers.d/ubuntu` e renomeando para grader dentro de seu conteúdo;
 - Gerado o novo par de chaves localmente, copiando a chave pública e inserindo em `.ssh/authorized_keys` dentro de `/home/grader/`, com as devidas permissões (700 para `.ssh` e 600 para `.ssh/authorized_keys`);
-- Desativa login via root editando `/etc/ssh/sshd_config` em:
+- Desativação do login via root editando `/etc/ssh/sshd_config` em:
 ```
-PasswordAuthentication no
+PermitRootLogin no
 ```
+- Edição de `/etc/ssh/sshd_config`, mudando a porta para 2200;
+- Permissão de algumas portas no firewall com o `sudo ufw allow`, ativando www, 2200/tcp e ntp. Foi desativada a porta ssh padrão com `sudo ufw deny` e por fim o firewall foi ativado com `sudo ufw enable`;
 
 Configuração de rede:
 - HTTP: 80 - TCP
