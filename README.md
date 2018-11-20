@@ -21,11 +21,20 @@ Configuração do servidor:
 - SO: Ubuntu 16.04 LTS
 - Plano de 512 MB RAM, 1 vCPU, 20 GB SSD
 
+Configuração do Ubuntu:
+- Atualização de pacotes feitas em 19/11/2018;
+- Criação de um usuário chamado grader;
+- Poderes de sudo foram cedidos ao grader copiando o arquivo `/etc/sudoers.d/ubuntu` e renomeando para grader dentro de seu conteúdo;
+- Gerado o novo par de chaves localmente, copiando a chave pública e inserindo em `.ssh/authorized_keys` dentro de `/home/grader/`, com as devidas permissões (700 para `.ssh` e 600 para `.ssh/authorized_keys`);
+- Desativa login via root editando `/etc/ssh/sshd_config` em:
+```
+PasswordAuthentication no
+```
+
 Configuração de rede:
 - HTTP: 80 - TCP
 - (Custom) NTP: 123 - UDP
 - (Custom) SSH: 2200 - TCP
-
 
 Configuração de `/etc/apache2/sites-enabled/000-default.conf` (sem os comentários):
 ```sh
