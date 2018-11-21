@@ -53,11 +53,11 @@ Configuração da aplicação:
 - Foi copiado o arquivo `webtool.wsgi` do repositório para o diretório `/var/www/projeto-catalogo/`;
 - Foi seguido os passos descritos no README do branch `linux-deploy` para fazer a configuração correta do projeto;
 - Foi necessário alterar certas coisas do projeto para funcionar corretamente:
-        * Os caminhos foram configurados para serem absolutos e não relativos;
-        * A URI do banco de dados foi alterada de sqlite para postgresql, assim sendo agora `postgresql://grader:123qwe@localhost/catalogo`;
-        * O conteúdo de algumas requisições ajax precisam agora ser decodificadas para utf-8 para funcionarem, com `decode("utf-8")`;
-        * Mudar de xrange para range;
-        * As strings agora precisam ser codificadas para utf-8 antes de ser feito o hashing com `encode("utf-8")`.     
+   * Os caminhos foram configurados para serem absolutos e não relativos;
+   * A URI do banco de dados foi alterada de sqlite para postgresql, assim sendo agora `postgresql://grader:123qwe@localhost/catalogo`;
+   * O conteúdo de algumas requisições ajax precisam agora ser decodificadas para utf-8 para funcionarem, com `decode("utf-8")`;
+   * Mudar de xrange para range;
+   * As strings agora precisam ser codificadas para utf-8 antes de ser feito o hashing com `encode("utf-8")`.     
 
 Configuração de `/etc/apache2/sites-enabled/000-default.conf` (sem os comentários):
 ```sh
